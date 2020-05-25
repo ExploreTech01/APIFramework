@@ -26,8 +26,12 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.testng.annotations.Test;
+
+import com.jayway.jsonpath.JsonPath;
 
 public class PostRawJsonAPI {
 
@@ -56,5 +60,19 @@ public class PostRawJsonAPI {
 		
 		String strReturnJSON = jsonString.toString();
 		System.err.println("---> "+strReturnJSON);
+		
+		ArrayList<String> arrProductIds = new ArrayList<String>();
+		List<String> arrProdIDS = JsonPath.read(strReturnJSON,"GetCartResult..pOrderSummary..PurchaseOrderItemList..IntellikitProductIds");
+		for (int i = 0; i < arrProdIDS.size(); i++) {
+
+			String strProdIds = arrProdIDS.get(i);
+			String[] str1=strProdIds.split("#");
+			String prod1 =str1[0];
+			arrProductIds.add(prod1);
+			System.err.println("---> "+arrProductIds.get(i));
+		}
+		br.close();
+		connection.disconnect();
+		return;
 	}
 }
