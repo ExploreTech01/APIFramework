@@ -62,7 +62,7 @@ public class PostRawJsonAPI {
 		System.err.println("---> "+strReturnJSON);
 		
 		ArrayList<String> arrProductIds = new ArrayList<String>();
-		List<String> arrProdIDS = JsonPath.read(strReturnJSON,"GetCartResult..pOrderSummary..PurchaseOrderItemList..IntellikitProductIds");
+		List<String> arrProdIDS = JsonPath.read(strReturnJSON,"abcDfghi..abcDfghi..abcDfghi..*****ProductIds");
 		for (int i = 0; i < arrProdIDS.size(); i++) {
 
 			String strProdIds = arrProdIDS.get(i);
