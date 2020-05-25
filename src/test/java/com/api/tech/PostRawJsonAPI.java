@@ -2,6 +2,7 @@
 * Request Post URL
 * Request Payload - Put into Postman Raw Data
 * Headers will fetch by defalt
+* Added (JsonPath.read) - to fetch value from json data
 * 
 * Dependencies
 * <dependency>
